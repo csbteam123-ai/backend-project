@@ -12,8 +12,11 @@ const contact = require("./component/routes/mail.contact")
 let app = express();
 
 app.use(express.json());
-app.use(cors());
-
+app.use(cors({
+    origin: ["https://fronend-project.onrender.com"], // তোমার deployed ফ্রন্টএন্ড URL
+    methods: ["GET","POST"],
+    credentials: true
+}));
 // router
 
 app.use("/api", createuser, login, token_auth,vf_token,contact);
