@@ -4,7 +4,7 @@ let jwt = require("jsonwebtoken")
 let route = express.Router();
 let user_info = require("../models/user.login.model");
 const tokenck = require("../middleware/token.ck");
-route.post("/usercreate", tokenck, async (req, res) => {
+route.post("/usercreate", async (req, res) => {
   const { email, name, password } = req.body;
   const passhash = await bcrypt.hash(password,10)
   try {

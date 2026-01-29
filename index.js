@@ -8,6 +8,7 @@ const login = require("./component/routes/user.login");
 const token_auth = require("./component/routes/token.auth");
 const dbconnect = require("./component/config/db");
 const vf_token = require("./component/routes/page.token.user")
+const contact = require("./component/routes/mail.contact")
 let app = express();
 
 app.use(express.json());
@@ -15,7 +16,7 @@ app.use(cors());
 
 // router
 
-app.use("/api", createuser, login, token_auth,vf_token);
+app.use("/api", createuser, login, token_auth,vf_token,contact);
 
 app.get("/", (req, res) => {
   res.send({
