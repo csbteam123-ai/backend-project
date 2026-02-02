@@ -52,5 +52,6 @@ app.get("/api/maruf", (req, res) => {
 
 app.listen(process.env.PORT,()=>{
   dbconnect()
+  console.log(process.env.EMAIL_USERNAME, process.env.EMAIL_APP_PASSWORD)
   console.log("server is runing in "+process.env.PORT)
 })
