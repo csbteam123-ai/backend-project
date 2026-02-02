@@ -11,7 +11,7 @@ route.post("/usercreate", async (req, res) => {
     const usercrate = new user_info({
       name,
       email,
-      password: passhash,
+      password: passhash
     });
 
     await usercrate.save();
