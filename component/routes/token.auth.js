@@ -14,7 +14,7 @@ route.get("/token/test/ck", tokenck, async (req, res) => {
         state: 1,
         bolien: true,
         msg: "all okk",
-        user,
+        role: user.role,
       });
     }
   } catch (error) {

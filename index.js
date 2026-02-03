@@ -7,12 +7,12 @@ const createuser = require("./component/routes/user.create");
 const login = require("./component/routes/user.login");
 const token_auth = require("./component/routes/token.auth");
 const dbconnect = require("./component/config/db");
-const vf_token = require("./component/routes/page.token.user")
-const contact = require("./component/routes/mail.contact")
-const all_user_send = require("./component/routes/all.user.send")
-const user_update = require("./component/routes/user.update")
-const user_delete = require("./component/routes/user.delete")
-
+const vf_token = require("./component/routes/page.token.user");
+const contact = require("./component/routes/mail.contact");
+const all_user_send = require("./component/routes/all.user.send");
+const user_update = require("./component/routes/user.update");
+const user_delete = require("./component/routes/user.delete");
+const servises_route = require("./component/routes/servises.rw");
 
 let app = express();
 
@@ -21,7 +21,18 @@ app.use(cors());
 
 // router
 
-app.use("/api", createuser, login, token_auth,vf_token,contact,all_user_send,user_update, user_delete);
+app.use(
+  "/api",
+  createuser,
+  login,
+  token_auth,
+  vf_token,
+  contact,
+  all_user_send,
+  user_update,
+  user_delete,
+  servises_route,
+);
 
 app.get("/", (req, res) => {
   res.send({
@@ -55,8 +66,8 @@ app.get("/api/maruf", (req, res) => {
 
 // })
 
-app.listen(process.env.PORT,()=>{
-  dbconnect()
-  console.log(process.env.EMAIL_USERNAME, process.env.EMAIL_APP_PASSWORD)
-  console.log("server is runing in "+process.env.PORT)
-})
+app.listen(process.env.PORT, () => {
+  dbconnect();
+  console.log(process.env.EMAIL_USERNAME, process.env.EMAIL_APP_PASSWORD);
+  console.log("server is runing in " + process.env.PORT);
+});
