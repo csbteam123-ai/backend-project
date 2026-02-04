@@ -24,4 +24,27 @@ route.post("/servises/add", tokenck, async (req, res) => {
       .json({ message: "Error adding service", error: error.message });
   }
 });
+route.get("/servises/all", async (req, res) => {
+  try {
+    const servises = await servises_ck.find(); 
+    res.status(200).json({ data: servises });
+  } catch (error) {
+    res
+      .status(500)
+      .json({ message: "Error fetching services", error: error.message });
+  }
+});
+
+route.patch("/servises/update/:id", tokenck, async (req, res) => {
+  const { id } = req.params;
+  const updates = req.body;
+
+  try {
+    const updatedServises = await servises_ck.findByIdAndUpdate(id, updates, { new: true });
+    res.status(200).json({ message: "Service updated successfully", data: updatedServises });
+  } catch (error) {
+    res.status(500).json({ message: "Error updating service", error: error.message });
+  }
+});
+
 module.exports = route;
