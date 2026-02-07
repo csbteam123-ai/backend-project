@@ -19,7 +19,8 @@ route.post("/login",async (req,res)=>{
         return res.send({
             stest:1,
             msg:"login successful",
-            token
+            token,
+            user
         })
     }
     return res.send({

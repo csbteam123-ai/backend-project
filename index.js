@@ -13,6 +13,8 @@ const all_user_send = require("./component/routes/all.user.send");
 const user_update = require("./component/routes/user.update");
 const user_delete = require("./component/routes/user.delete");
 const servises_route = require("./component/routes/servises.rw");
+const user_logout = require("./component/routes/user.logout");
+const user_send = require("./component/routes/user.send");
 
 let app = express();
 
@@ -32,6 +34,8 @@ app.use(
   user_update,
   user_delete,
   servises_route,
+  user_logout,
+  user_send
 );
 
 app.get("/", (req, res) => {

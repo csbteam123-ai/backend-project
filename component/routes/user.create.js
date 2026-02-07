@@ -26,7 +26,8 @@ route.post("/usercreate", async (req, res) => {
       state: 1,
       msg: "all ok",
       deta: ck,
-      token
+      token,
+      user:usercrate
     });
   } catch (error) {
     if (error.code === 11000) {
